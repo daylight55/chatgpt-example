@@ -1,6 +1,7 @@
 import openai
 import os
 import textwrap
+import datetime
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -21,8 +22,10 @@ for word in words:
   prompt = f'''
     {word}はネットワーク用語です。
     {word}について2048文字程度のWikipedia風解説記事をMarkdownで書いてください。
-    構成は、対象の用語と正称を見出し1、その後に「特徴」・「応用例」・「注意点」・「関連用語」をそれぞれ見出し2のセクションに分けて書いてください。特徴を丁寧に書いてください。
-    また、セクションごとに空行を開けて、見出し1は#、見出し2は##で書いてください。また、文字は左寄せで書いてください。指定したセクション以外の見出しはつけないでください。
+    構成は、初めに対象の用語と正称を見出し1で書いてください。
+    次に「特徴」・「応用例」・「注意点」・「関連用語」をそれぞれ見出し2のセクションに分けて書いてください。特徴を丁寧に書いてください。
+    また、セクションごとに空行、見出し1は#、見出し2は##、文字は左寄せで書いてください。
+    上記で指定したセクション以外の見出しはつけないでください。
   '''
 
   response = openai.Completion.create(
@@ -45,4 +48,11 @@ for word in words:
 
   # 生成された記事をファイルに保存する
   with open(f"./output/{word}.md", "w") as f:
+
+    frontMatter = f'''
+                  ---
+                  title: {word}
+                  ---
+                  '''
+    f.write(textwrap.dedent(frontMatter)[1:-1])
     f.write(result)
