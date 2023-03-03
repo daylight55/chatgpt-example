@@ -1,4 +1,7 @@
-
+---
+title: ARP
+aliases: [/posts/my-old-url/]
+---
 
 # ARP
 ## 正称
