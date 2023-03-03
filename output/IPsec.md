@@ -1,16 +1,29 @@
+---
+title: IPsec
+---
 
-
-# IPsec
-IPsec(Internet Protocol Security)は、インターネットプロトコルをセキュアにするための技術である。
+# IPsec（Internet Protocol Security）
+IPsecはインターネットプロトコルをセキュリティ対策するための暗号化技術である。
 
 ## 特徴
-IPsecは、IPパケットの認証と暗号化を行う。認証はSender Authentication Header(AH)で行われ、暗号化はEncapsulating Security Payload(ESP)で行われる。また、IPsecはトunnnelモードとTransportモードの2つがある。Tunnnelモードでは、通信元・通信先のアドレスを隠蔽して通信することができる。一方、Transportモードではアドレスが通信相手に伝わってしまうため、セキュリティレベルは低くなる。
+IPsecはIPパケットのセキュリティ対策を行うための様々な機能を備えている。  
+また、IPv4とIPv6両方に対応している。  
+通信内容の暗号化にはAES（Advanced Encryption Standard）やDES（Data Encryption Standard）などが使用される。  
+また、認証にはRSA（Rivest–Shamir–Adleman）やDH（Diffie-Hellman key exchange）など様々な方式が使用される。  
+これらの機能により、中間者攻撃・DoS攻撃・情報漏えいなどの脆弱性を大きく軽減することができる。
 
-## 応用例
-VPN(Virtual Private Network)の構築に利用されることが多い。また、IoTデバイスの通信をセキュリティ対策する場合にも利用される。
+## 応用例 
+VPN(Virtual Private Network)を利用する際に使用されることが多い。  
+また、セキュリティ対策ソフトウェアの一部としても使用されている。  
+例えば、トラフィックの通信内容を監視し、不正アクセスの場合はブロックする機能を備えているセキュリティソフトウェアであったり、特定の端末からの通信のみを許可するファイアウォールソフトウェアであったりする。 
+ 
+## 注意点 
+セキュリティ対策として効果的でありながらも、複雑な設定が必要となってしまうことが多いため注意が必要である。  
 
-## 注意点
-セキュリティレベルの高いTunnnelモードの通信を行う場合、パフォーマンスが劣化することがあるため注意が必要である。また、IoTデバイスの場合はCPUのパワー不足などによりセキュリティ対策を施すことが難しい場合もあるため注意が必要である。
-
-## 関連用語
-IPSec over L2TPv3:L2TPv3プロトコル上にIPsecを実装したプロトコル
+ 
+## 関連用語 
+VPN(Virtual Private Network):仮想プライベートネットワーク  
+AES(Advanced Encryption Standard):高度暗号化スタンダード   
+DES(Data Encryption Standard):データ暗号化スタンダード    
+RSA(Rivest–Shamir–Adleman):公開鍵暗号方式    
+DH(Diffie-Hellman key exchange):差異ホラマン鍵交換

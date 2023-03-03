@@ -7,9 +7,9 @@
 
 ## Recommended
 - asdf
-  - python 
-  - poetry
-  - hugo
+- python 
+- poetry
+- hugo
 
 Please refer to `.tool-versions` for the version
 

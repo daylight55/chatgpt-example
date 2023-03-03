@@ -1,47 +1,25 @@
+---
+title: RSTP
+---
+RSTPについて2048文字程度のWikipedia風解説記事をMarkdownで書いてください。
+
+# RSTP
+RSTP(Rapid Spanning Tree Protocol)は、IEEE802.1Dに基づくスパニングツリープロトコルの改良版である。RSTPは、スパニングツリーのルート選択プロセスを加速するために使用される。RSTPは、特定の状況下でポートをブロックしないため、IEEE802.1Dに比べてネットワークの収容性が大幅に向上している。
+
+## 特徴
+- スパニングツリーのルート選択プロセスを加速するため、IEEE802.1Dに比べてネットワークの収容性が大幅に向上している。
+- ポートをブロックしないため、IEEE802.1Dに比べてネットワークの収容性が大幅に向上している。
+- IEEE802.1wと互換性があり、IEEE802.1wをサポートしていないデバイスとの通信も可能である。
+
+## 応用例
+RSTPは、以下のような状況下でポートをブロックしないため、IEEE802.1Dに比べてネットワークの収容性が大幅に向上している。
+- ルートフェイルオーバー時のフラッシュブロードキャストStorm対策として使用される。
+- クラスタリング機能として使用されることもある。
 
 
-#RSTP
-##正称
-Rapid Spanning Tree Protocol（ラピッド・スパニング・ツリー・プロトコル）、IEEE 802.1w
-##特徴
-* スタンダード化された、高速なスパニングツリーアルゴリズムである。
-* ネットワークの自動構成機能を備えている。
-* IEEE 802.1Dに比べて、フラッピングやブロック化を抑制することができる。また、ネットワークの構成にかかる時間も短縮されている。
-* VLANをサポートしている。
-##応用例
-IEEE802.1wは、IEEE802.1Dに加えて2つのモードをサポートしている。アクティブモードとポートfast startモードの2つである。アクティブモードは、IEEE802.1Dと同じ動作をする。ポートfast startモードは、ネットワークの再構成にかかる時間を短縮するために用いられる。このモードでは、スイッチは常にポートをフォワーディングモードにしており、ネットワーク障害が発生した場合でもすぐにポートをフォワーディングモードに復帰することができる。
-##注意点
-IEEE802.1wはIEEE802.1Dと互換性がないため注意が必要である。また、セキュリティ上の理由からも使用する際は注意が必要である。
-##関連用語
-* STP：スパニングツリーアルゴリズムの一種であり、IEEE 802.1D規格で定められている。最大16ビットの長さのMACアドレスフィールドを使用してトランザクションIDを生成するため、MACアドレスの範囲内でトランザクションIDの重複が生じないようにしなければならない。また2ビットのフラグフィールドと8ビットのチェックサムフィールドも使用するため帯域幅の節約が難しくなっていた（後述）。  
-RSTPはSTPの欠点を補う形で導入された規格であり、MACアドレスフィールドの長さを4ビットに削減し8ビットのチェックサムフィールドと4ビットのフラグフィールドだけ使用することで帯域幅の節約に対応している  
-* BPDU：Bridge Protocol Data Unitの略語であり、OSI参照モデルのデータリンク層以下の層（物理層・データリンク層）の役割を果たすプロトコルデータ単位（PDU）  
-BPDUはOSPFパケットと似ていますがOSPFパケットはIPパケット内部に含まれて転送されます  
+## 注意点
+RSTPは、IEEE 802.1QベースのVLAN(Virtual LAN)環境下で動作するため、VLANの設定が必要となる。また、IEEE 802.1Qベースで動作するため、VLAN間の通信も可能となっている。
 
-  RSTP/STP BPDUフォーマット  
 
- ![](https://github.com/ryo-ma/markdown_exercises/blob/master/stp_bpdu_format.gif)   
-
-　RSTP BPDUフォーマット  
-
- ![](https://github.com/ryo-ma/markdown_exercises/blob/master/rstp_bpdu_format.gif)   
-
- 図中の項目の意味  
-
- * プロトコルバージョン: 2bit  STP=0 / RSTP=2 に固定されています(他にもBPDUフォーマットの定義方法が存在します)    
-
- * プロトコルオプション: 1bit 常に0x00 に固定されています    
-
- * メッセージタイプ: 1bit 0x00=Configuration Message / 0x02=Topology Change Notification Message / 0x01=Topology Change Acknowledgment Message に固定されています    
-
- * タイムアウト: 2bit 2^(n+6)sec (n=0~3 の場合) を意味します n=0 の場合 15sec, n=3 の場名 480sec に相当します    
-
- * 保留: 3bit 常に0x000 に固定されています    
-
- * フラグメッセージ: 1bit 0x00=Configuration Message が送信された際の挙動, 0x02=Topology Change Notification Message が送信された際の挙動, 0x01=Topology Change Acknowledgment Message が送信された際の挙動 を表します    
-
- * Root Identifier: 8byte 送信元bridge ID を表します    8byte = 4byte(priority)+4byte(MAC address)=2byte(bridge priority)+6byte(MAC address) の形式となっています    
-
- * Root Path Cost: 4byte 送信元bridge ID までの経路コストの合計値を表します 経路コストの定義方法は後述      
-
- * Bridge Identifier: 8byte 送信元bridge ID を表します    8byte = 4byte(priority)+4byte(MAC address)=2byte(bridge priority)+6byte(MAC address) の形式となっています     　　　　　　　　　         ｜priority| MAC address|                                                              ｜priority| MAC address|                                                              ｜priority| MAC address|                                                              ｜priority| MAC address|            |priority| MAC address|            |priority| MAC address|            |priority| MAC address|            |priority| MAC address|            |priority| MAC address
+## 関連用語
+- IEEE 802.1D：RSTPの基礎となっている規格であり、LAN内部の通信規格の一つである。またマルチマシンシステム間の通信規格(OSI参照モデルの第2層)として広く使用されてきた。
