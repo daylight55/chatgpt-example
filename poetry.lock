@@ -121,6 +121,17 @@ embeddings = ["matplotlib", "numpy", "openpyxl (>=3.0.7)", "pandas (>=1.2.3)", "
 wandb = ["numpy", "openpyxl (>=3.0.7)", "pandas (>=1.2.3)", "pandas-stubs (>=1.1.0.11)", "wandb"]
 
 [[package]]
+name = "python-dotenv"
+version = "1.0.0"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
 name = "requests"
 version = "2.28.2"
 description = "Python HTTP for Humans."
@@ -183,7 +194,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "9974ec52f6375747132e30681417d2a2676b84318db89d66c456935929f9f5b1"
+content-hash = "a560a40f7ed6afa8299108f95cc95a52abbda96543a5577afacce7ec470c10da"
 
 [metadata.files]
 aiohttp = [
@@ -544,6 +555,10 @@ multidict = [
 openai = [
     {file = "openai-0.27.0-py3-none-any.whl", hash = "sha256:7d4066ea529658a1f1696a8766912b3f3b7139faca860dc530bf102f0b19d42c"},
     {file = "openai-0.27.0.tar.gz", hash = "sha256:0efa486016283607cb72c23eac346ac739a22613ff4bff101df72a138cb2de60"},
+]
+python-dotenv = [
+    {file = "python-dotenv-1.0.0.tar.gz", hash = "sha256:a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba"},
+    {file = "python_dotenv-1.0.0-py3-none-any.whl", hash = "sha256:f5971a9226b701070a4bf2c38c89e5a3f0d64de8debda981d1db98583009122a"},
 ]
 requests = [
     {file = "requests-2.28.2-py3-none-any.whl", hash = "sha256:64299f4909223da747622c030b781c0d7811e359c37124b4bd368fb8c6518baa"},
