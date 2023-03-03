@@ -1,9 +1,15 @@
 # ChatGPT Example
 
+ネットワークスペシャリストの用語一覧をMarkdownで出力します。
+
+ネットワークスペシャリストの語句一覧はこちらの記事の略称一覧を使用させて頂きました。
+[令和元(2019)年ネットワークスペシャリスト試験略号一覧 - Qiita](https://qiita.com/kaizen_nagoya/items/24c7f2ea3fe0b4ce434b)
+
 ## Recommended
 - asdf
   - python 
   - poetry
+  - hugo
 
 Please refer to `.tool-versions` for the version
 
@@ -27,4 +33,10 @@ Run
 ```
 poetry shell
 .venv ❯ python main.py
+```
+
+## Viewer
+
+```
+hugo server
 ```
