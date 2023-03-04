@@ -1,8 +1,8 @@
 baseURL = 'https://daylight55.github.io/chatgpt-example/'
 languageCode = 'ja'
 title = 'Network Specialist Dictionary by ChatGPT'
-theme = 'hugo-creative-portfolio-theme'
-publishDir = "docs"
+theme = 'ananke'
+publishDir = "public"
 
 [params]
 
