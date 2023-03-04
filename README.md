@@ -1,6 +1,9 @@
 # ChatGPT Example
 
-ネットワークスペシャリストの用語一覧をMarkdownで出力します。
+ネットワークスペシャリストの用語解説記事をMarkdownで出力します。
+また、作成後はHugoでビルドしたページをGithub Actionsを使いGithub Pagesにホスティングします。
+
+
 
 ネットワークスペシャリストの語句一覧はこちらの記事の略称一覧を使用させて頂きました。  
 [令和元(2019)年ネットワークスペシャリスト試験略号一覧 - Qiita](https://qiita.com/kaizen_nagoya/items/24c7f2ea3fe0b4ce434b)
